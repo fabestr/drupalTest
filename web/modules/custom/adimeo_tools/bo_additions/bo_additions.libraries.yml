@@ -1,0 +1,4 @@
+toolbar_front:
+  css:
+    theme:
+      assets/css/toolbar_front.css: {}

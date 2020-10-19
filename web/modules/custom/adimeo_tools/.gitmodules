@@ -1,0 +1,6 @@
+[submodule "adimeo_apm_tracking"]
+	path = adimeo_apm_tracking
+	url = https://github.com/Core-Techs-Git/adimeo_drupal_tracking.git
+[submodule "adimeo_apm_ticketing"]
+	path = adimeo_apm_ticketing
+	url = https://github.com/Core-Techs-Git/apm_drupal_ticketing.git

@@ -1,0 +1,5 @@
+services:
+  adimeo_tools.commands:
+    class: \Drupal\adimeo_tools\Drush\AdimeoToolsCommandsDrush9
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,6 @@
+name: 'Icon Selector'
+type: module
+description: "Ajoute un field widget text pour gérer la selection d'icône issue d'un dossier du thème et de les ressortir de 3 façons différentes : `Nom brut` à utiliser avec un système d'icon-font custom ; `Font Awesome` qui permet de récupérer le nom de l'icône préfixé de 'fa' ; `Chemin complet avec le .svg` qui renvoi le chemin utilisable dans une balise img"
+core_version_requirement: ^8 || ^9
+core: 8.x
+package: User interface

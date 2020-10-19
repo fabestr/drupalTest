@@ -1,0 +1,8 @@
+tac-google-map-field-renderer:
+  version: 1.x
+  js:
+    js/tac-google-map-field-renderer.js: {weight: -1}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once

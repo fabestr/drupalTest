@@ -1,0 +1,12 @@
+name: TAC Google Map Field
+description: Override the contrib module Google Map Field in order to use tac_services with it.
+package: Web services
+
+type: module
+core_version_requirement: ^8 || ^9
+core: 8.x
+
+dependencies:
+  - tac_services
+  - google_map_field
+

@@ -1,0 +1,5 @@
+services:
+  tac_google_map_field.route_subscriber:
+    class: Drupal\tac_google_map_field\Routing\TacGmapsFieldRouteSubscriber
+    tags:
+      - { name: event_subscriber }

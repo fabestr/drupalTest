@@ -1,0 +1,25 @@
+media_enhancement.image_reducer:
+  path: '/m_enhance/{file}'
+  defaults:
+    _controller: '\Drupal\media_enhancement\Controllers\ImageReducer::showImage'
+    _title: 'show'
+  requirements:
+    _permission: 'access content'
+
+media_enhancement.conf:
+  path: '/admin/config/media/enhancement'
+  defaults:
+    _form: '\Drupal\media_enhancement\Forms\MediaEnhancementConfig'
+  requirements:
+    _permission: 'administer media types'
+
+media_enhancement.ajax_media_display:
+  path: '/ajax/m_enhance/display/{media}'
+  defaults:
+    _controller: media_enhancement.ajax_popin_controller:render
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      media:
+        type: entity:media

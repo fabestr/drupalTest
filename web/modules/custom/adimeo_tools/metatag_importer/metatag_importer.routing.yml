@@ -1,0 +1,7 @@
+metatag_importer.metatag_import:
+  path: '/admin/config/search/metatag/import'
+  defaults:
+    _title: 'Metatag import'
+    _form: '\Drupal\metatag_importer\Form\MetatagImport'
+  requirements:
+    _permission: 'access administration pages'

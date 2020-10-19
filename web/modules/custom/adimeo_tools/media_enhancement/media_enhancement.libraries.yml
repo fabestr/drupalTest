@@ -1,0 +1,9 @@
+lazyloading:
+  css:
+    theme:
+      assets/css/lazyloading.css: {}
+  js:
+    assets/js/lazyloading.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

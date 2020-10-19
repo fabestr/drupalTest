@@ -1,0 +1,17 @@
+tac_services.conf:
+  title: 'Services Tarteaucitron'
+  parent: system.admin_config_services
+  route_name: tac_services.settings
+  weight: -4
+
+tac_services.conf.list_form:
+  title: 'Liste des webservices'
+  parent: tac_services.conf
+  route_name: tac_services.configuration_form
+  weight: 0
+
+tac_services.conf.settings_form:
+  title: 'Configuration globale'
+  parent: tac_services.conf
+  route_name: tac_services.settings_form
+  weight: 1

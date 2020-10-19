@@ -1,0 +1,7 @@
+redirection_importer.redirection_import:
+  path: '/admin/config/search/redirect/import'
+  defaults:
+    _title: 'Redirection import'
+    _form: '\Drupal\redirection_importer\Form\RedirectionImport'
+  requirements:
+    _permission: 'access administration pages'

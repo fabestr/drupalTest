@@ -1,0 +1,12 @@
+name: Tarteaucitron
+description: Intégration de tarteaucitron.js en application du règlement général sur la protection des données (RGPD)
+type: module
+version: '8.x-1.4.6'
+core_version_requirement: ^8 || ^9
+core: 8.x
+interface translation project: tac_services
+interface translation server pattern: modules/contrib/adimeo_tools/tac_services/translations/%project-v1.%language.po
+package: Web services
+configure: tac_services.configuration_form
+dependencies:
+  - adimeo_tools

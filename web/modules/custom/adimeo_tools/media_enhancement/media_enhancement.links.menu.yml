@@ -1,0 +1,4 @@
+media_enhancement.settings:
+  title: 'Media Enhancement'
+  parent: system.admin_config_media
+  route_name: media_enhancement.conf

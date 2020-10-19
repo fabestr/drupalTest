@@ -1,0 +1,16 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function test_preprocess_html(&$variables) {
+//    Redirect::create([
+//        'redirect_source' => '/', // Set your custom URL.
+//        'redirect_redirect' => 'internal:/node/2', // Set internal path to a node for example.
+//        'language' => 'und', // Set the current language or undefined.
+//        'status_code' => '301', // Set HTTP code.
+//    ])->save();
+}
+
+function test_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+}

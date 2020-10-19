@@ -1,0 +1,12 @@
+{
+    "name": "adimeo/adimeo_tools",
+    "license": "GPL-3.0-only",
+    "description": "Custom tools for Drupal 8 development @Adimeo",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Adimeo",
+            "email": "contact@adimeo.com"
+        }
+    ]
+}

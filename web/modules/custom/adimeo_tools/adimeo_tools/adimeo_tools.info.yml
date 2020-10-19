@@ -1,0 +1,10 @@
+name: Adimeo Tools
+type: module
+description: Custom tools for Drupal 8 development @Adimeo
+version: '8.x-1.0'
+core_version_requirement: ^8 || ^9
+core: '8.x'
+package: Adimeo
+
+dependencies:
+ - update

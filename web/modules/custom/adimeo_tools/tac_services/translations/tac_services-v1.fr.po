@@ -1,0 +1,138 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-07-17 15:41+0200\n"
+"PO-Revision-Date: 2015-07-20 10:12+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: EMAIL@ADDRESS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.2\n"
+"Language: fr_FR\n"
+
+msgid "Hello! This site is transparent and lets you chose the 3rd party services you want to allow."
+msgstr "Bonjour! Ce site joue la transparence et vous donne le choix des services tiers à activer."
+
+msgid "Please disable your adblocker to start customizing."
+msgstr "Merci de désactiver votre adblocker pour commencer la personnalisation."
+
+msgid "Refresh the page"
+msgstr "Recharger la page"
+
+msgid "By continuing to scroll,"
+msgstr "En continuant de défiler,"
+
+msgid "If you continue to browse this website,"
+msgstr "En poursuivant votre navigation,"
+
+msgid "you are allowing all third-party services"
+msgstr "vous acceptez l'utilisation de services tiers pouvant installer des cookies"
+
+msgid "This site uses cookies and gives you control over what you want to activate"
+msgstr "Ce site utilise des cookies et vous donne le contrôle sur ce que vous souhaitez activer"
+
+msgid "Manage services"
+msgstr "Gestion des services"
+
+msgid "Personalize"
+msgstr "Personnaliser"
+
+msgid "OK, accept all"
+msgstr "OK, tout accepter"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Preference for all services"
+msgstr "Préférence pour tous les services"
+
+msgid "Protecting your privacy"
+msgstr "Protection de votre vie privée"
+
+msgid "By allowing these third party services, you accept their cookies and the use of tracking technologies necessary for their proper functioning."
+msgstr "En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l'utilisation de technologies de suivi nécessaires à leur bon fonctionnement."
+
+msgid "Allow"
+msgstr "Autoriser"
+
+msgid "Deny"
+msgstr "Interdire"
+
+msgid "This service does not use cookie."
+msgstr "Ce service ne dépose aucun cookie."
+
+msgid "This service can install"
+msgstr "Ce service peut déposer"
+
+msgid "This service has installed"
+msgstr "Ce service a déposé"
+
+msgid "This service has not installed any cookie."
+msgstr "Ce service n'a déposé aucun cookie."
+
+msgid "Read more"
+msgstr "En savoir plus"
+
+msgid "View the official website"
+msgstr "Voir le site officiel"
+
+msgid "Cookies manager by tarteaucitron.js"
+msgstr "Gestion des cookies par tarteaucitron.js"
+
+msgid "is disabled."
+msgstr "est désactivé."
+
+msgid "Advertising network"
+msgstr "Régies publicitaires"
+
+msgid "Ad networks can generate revenue by selling advertising space on the site."
+msgstr "Les régies publicitaires permettent de générer des revenus en commercialisant les espaces publicitaires du site."
+
+msgid "Audience measurement"
+msgstr "Mesure d'audience"
+
+msgid "The audience measurement services used to generate useful statistics attendance to improve the site."
+msgstr "Les services de mesure d'audience permettent de générer des statistiques de fréquentation utiles à l'amélioration du site."
+
+msgid "Social networks"
+msgstr "Réseaux sociaux"
+
+msgid "Social networks can improve the usability of the site and help to promote it via the shares."
+msgstr "Les réseaux sociaux permettent d'améliorer la convivialité du site et aident à sa promotion via les partages."
+
+msgid "Videos"
+msgstr "Vidéos"
+
+msgid "Video sharing services help to add rich media on the site and increase its visibility."
+msgstr "Les services de partage de vidéo permettent d'enrichir le site de contenu multimédia et augmentent sa visibilité."
+
+msgid "Comments"
+msgstr "Commentaires"
+
+msgid "Comments managers facilitate the filing of comments and fight against spam."
+msgstr "Les gestionnaires de commentaires facilitent le dépôt de vos commentaires et luttent contre le spam."
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Support services allow you to get in touch with the site team and help to improve it."
+msgstr "Les services de support vous permettent d'entrer en contact avec l'équipe du site et d'aider à son amélioration."
+
+msgid "APIs"
+msgstr "APIs"
+
+msgid "APIs are used to load scripts: geolocation, search engines, translations, ..."
+msgstr "Les APIs permettent de charger des scripts : géolocalisation, moteurs de recherche, traductions, ..."
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "Services to display web content."
+msgstr "Services visant à afficher du contenu web."

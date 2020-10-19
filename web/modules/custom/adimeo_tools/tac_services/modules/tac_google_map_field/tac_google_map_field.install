@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function tac_google_map_field_install() {
+  // Assign a weight of 1, higher than google_map_field module which we're going
+  // to override in certain ways (routing, attachements)
+  module_set_weight('tac_google_map_field', 1);
+}

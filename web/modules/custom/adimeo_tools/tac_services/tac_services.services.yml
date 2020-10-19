@@ -1,0 +1,15 @@
+services:
+  # Tac Service Plugin Manager
+  tac_service.plugin.manager:
+    class: Drupal\tac_services\Service\TacServicePluginManager
+    parent: default_plugin_manager
+
+  # Tac Services conf manager
+  tac_services.conf_manager:
+    class: Drupal\tac_services\Service\TacServicesConfManager
+    parent: default_plugin_manager
+
+  #Tac global settings conf manager
+  tac_services.settings_manager:
+    class: Drupal\tac_services\Service\TacGlobalConfigService
+    arguments: ['@adimeo_tools.language']

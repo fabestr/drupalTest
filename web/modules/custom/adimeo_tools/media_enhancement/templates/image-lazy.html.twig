@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override of an image.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the img tag.
+ * - style_name: (optional) The name of the image style applied.
+ *
+ * @see template_preprocess_image()
+ */
+#}
+{% if getAttributeValue(attributes.lazyload) %}
+    <noscript>
+        <img{{ attributes }} />
+        <style>
+            .lazyload-image-wrapper {
+                display: none;
+            }
+        </style>
+    </noscript>
+    {% set src = getAttributeValue(attributes.src) %}
+    {% set attributes = attributes.removeAttribute('src').setAttribute('data-src', src).addClass('lazyload').removeAttribute('lazyload') %}
+    {% if(attributes.srcset) %}
+        {% set srcset = getAttributeValue(attributes.srcset) %}
+        {% set attributes = attributes.removeAttribute('srcset').setAttribute('data-srcset', srcset) %}
+    {% endif %}
+    <div class="lazyload-image-wrapper" {% if attributes.placeholder_width %}style="width:{{ getAttributeValue(attributes.placeholder_width) }}px;"{% endif %}>
+        {% if attributes.placeholder_width %}
+        {% set image_ratio_percent = (getAttributeValue(attributes.placeholder_height) / getAttributeValue(attributes.placeholder_width)) * 100 %}
+        {% endif %}
+        <div class="lazyload-image-content" {% if image_ratio_percent %}style="padding-top: {{ image_ratio_percent }}%"{% endif %}>
+            {% set attributes = attributes.removeAttribute('placeholder_width').removeAttribute('placeholder_height') %}
+            <img{{ attributes.removeAttribute('width').removeAttribute('height')  }} />
+        </div>
+    </div>
+
+{% else %}
+    <img{{ attributes }} />
+{% endif %}

@@ -1,0 +1,131 @@
+tac_services:
+  version: 1
+  css:
+    theme:
+      libraries/tarteaucitron/css/tarteaucitron.css: {}
+  js:
+    libraries/tac_additions/polyfill/CustomEvent.js: {}
+    libraries/tarteaucitron/tarteaucitron.js: {}
+    libraries/tarteaucitron/tarteaucitron.services.js: {}
+    libraries/tac_additions/tac_init.js: {}
+    libraries/tac_additions/tac_helpers.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+
+tac_facebook:
+  version: 1
+  js:
+    libraries/tac_facebook/tac_facebook.js: {}
+  dependencies:
+    - tac_services/tac_services
+
+tac_google_ga:
+  version: 1
+  js:
+    libraries/tac_google_analytics/tac_ga.js: {}
+  dependencies:
+    - tac_services/tac_services
+
+tac_google_maps_api:
+  version: 1
+  js:
+    libraries/tac_google_maps_api/tac_gmaps_api.js: {}
+  dependencies:
+    - tac_services/tac_services
+
+snazzy-info-window:
+  version: 1.1.1
+  js:
+    libraries/tac_google_maps_api/snazzy-info-window.min.js: {}
+
+gmaps-marker-clusterer:
+  version: 1.0
+  js:
+    libraries/tac_google_maps_api/markerclusterer.js: {}
+
+google_maps_api:
+  version: 0.1
+  js:
+    libraries/tac_google_maps_api/gmaps_api.js: {}
+  dependencies:
+    - tac_services/tac_services
+    - tac_services/tac_google_maps_api
+
+tac_youtube_api:
+  version: 1
+  js:
+    libraries/tac_youtube_api/tac_youtube_api.js: {}
+  dependencies:
+    - tac_services/tac_services
+
+youtube_api:
+  version: 1
+  js:
+    libraries/tac_youtube_api/youtube_api.js: {}
+  dependencies:
+    - tac_services/tac_services
+    - tac_services/tac_youtube_api
+
+tac_google_tag_manager:
+  version: 1
+  js:
+    libraries/tac_google_tag_manager/tac_gtm.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+tac_facebook_pixel:
+  version: 1
+  js:
+    libraries/tac_facebook_pixel/tac_facebook_pixel.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+tac_clic2drive:
+  version: 1
+  js:
+    libraries/tac_clic2drive/tac_clic2drive.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+tac_youtube_embed:
+  version: 1
+  js:
+    libraries/tac_youtube_embed/tac_youtube_embed.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+tac_tradelab:
+  version: 1
+  js:
+    libraries/tac_tradelab/tac_tradelab.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+tac_gtag:
+  version: 1
+  js:
+    libraries/tac_gtag/tac_gtag.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+tac_twitter_timelines:
+  version: 1
+  js:
+    libraries/tac_twitter_timelines/tac_twitter_timelines.js: {}
+  dependencies:
+      - tac_services/tac_services
+
+kissmetrics:
+  version: 1
+  js:
+    libraries/tac_kissmetrics/tac_kissmetrics.js: {}
+  dependencies:
+    - tac_services/tac_services
+
+tac_matomo:
+  version: 1
+  js:
+    libraries/tac_matomo/tac_matomo.js: {}
+  dependencies:
+    - tac_services/tac_services

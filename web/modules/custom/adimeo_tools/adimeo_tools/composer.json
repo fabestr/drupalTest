@@ -1,0 +1,17 @@
+{
+    "name": "drupal/adimeo_tools",
+    "description": "Custom tools for Drupal 8 development @Adimeo",
+    "type": "drupal-module",
+    "autoload": {
+        "psr-4": {
+            "Drupal\\bmg_import_user\\": "src/"
+        }
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^10"
+            }
+        }
+    }
+}

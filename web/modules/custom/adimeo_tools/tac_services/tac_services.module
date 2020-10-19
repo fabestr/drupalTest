@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ */
+
+use Drupal\tac_services\Service\TacGlobalConfigService;
+use Drupal\tac_services\Service\TacServicesConfManager;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function tac_services_page_attachments(array &$attachments) {
+  $is_admin = \Drupal::service('router.admin_context')->isAdminRoute();
+  if (!$is_admin) {
+
+    /** @var TacServicesConfManager $confManager */
+    $confManager = \Drupal::service(TacServicesConfManager::SERVICE_NAME);
+    $services = $confManager->getTacServicesConf();
+
+    if (!empty($services)) {
+      $activeServices = [];
+      foreach ($services as $pluginId => $service) {
+        if ($service['is_active']) {
+          $activeServices[$pluginId] = $service;
+        }
+      }
+
+      if (!empty($activeServices)) {
+        // Ajout des variables globales de tarteaucitron.js dans drupalSettings.
+        /** @var TacGlobalConfigService $globalTacConfService */
+        $globalTacConfService = \Drupal::service(TacGlobalConfigService::SERVICE_NAME);
+        $globalConfValues = $globalTacConfService->getAllValues();
+
+        // On ajoute le path du module tac_services pour lier les fihchiers de traduction.
+        $attachments['#attached']['drupalSettings']['tacServices']['translation_rep'] = '/' . drupal_get_path('module', 'tac_services').'/libraries/tarteaucitron/';
+
+        $attachments['#attached']['drupalSettings']['tacServices']['globalSettings'] = [
+          $globalTacConfService::HIGH_PRIVACY     => ($globalConfValues[$globalTacConfService::HIGH_PRIVACY]) ? TRUE : FALSE,
+          $globalTacConfService::ALLOWED_BUTTON     => ($globalConfValues[$globalTacConfService::ALLOWED_BUTTON]) ? TRUE : FALSE,
+          $globalTacConfService::COOKIE_LIST      => ($globalConfValues[$globalTacConfService::COOKIE_LIST]) ? TRUE : FALSE,
+          $globalTacConfService::SHOW_ALERT_SMALL => ($globalConfValues[$globalTacConfService::SHOW_ALERT_SMALL]) ? TRUE : FALSE,
+          $globalTacConfService::ADBLOCKER        => ($globalConfValues[$globalTacConfService::ADBLOCKER]) ? TRUE : FALSE,
+          $globalTacConfService::ORIENTATION      => $globalConfValues[$globalTacConfService::ORIENTATION],
+          $globalTacConfService::ALERT_LABEL      => $globalTacConfService->getAlertLabel(),
+        ];
+
+        // Ajout de la library tarte au citron.
+        $attachments['#attached']['library'][] = 'tac_services/tac_services';
+
+        // Ajout des libraries de tout les services.
+        foreach ($activeServices as $pluginId => $service) {
+          $attachments['#attached']['library'][] = $service['library'];
+          if (!empty($service['data'])) {
+            foreach ($service['data'] as $key => $value) {
+              $attachments['#attached']['drupalSettings']['tacServices'][$pluginId][$key] = $value;
+            }
+          }
+        }
+      }
+    }
+
+    return;
+  }
+
+}

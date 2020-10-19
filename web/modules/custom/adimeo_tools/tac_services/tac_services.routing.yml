@@ -1,0 +1,25 @@
+tac_services.settings:
+  path: '/admin/config/services/tarteaucitron'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Tarteaucitron'
+  requirements:
+    _permission: 'administer site configuration'
+
+# Route de la page de liste des webservices gérés via tarteaucitron.js
+tac_services.configuration_form:
+  path: '/admin/config/services/tarteaucitron/configurations'
+  defaults:
+    _form: '\Drupal\tac_services\Form\TacServicesConfForm'
+    _title: 'Webservices gérés via tarteaucitron.js'
+  requirements:
+    _permission: 'administer site configuration'
+
+# Route de la page de configuration globale de tarteaucitron.js
+tac_services.settings_form:
+  path: '/admin/config/services/tarteaucitron/settings'
+  defaults:
+    _form: '\Drupal\tac_services\Form\TacSettingsForm'
+    _title: 'Configuration globale de tarteaucitron.js'
+  requirements:
+    _permission: 'administer site configuration'

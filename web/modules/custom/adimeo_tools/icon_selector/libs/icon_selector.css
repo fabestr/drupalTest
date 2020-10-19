@@ -1,0 +1,34 @@
+.icon_selector_details .details-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon_selector_details .details-wrapper>.form-wrapper{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+.icon_selector_details .details-wrapper>.form-wrapper.selected{
+    background: #b0d7ef;
+}
+
+.icon_selector_details .details-wrapper>.form-wrapper:hover{
+    box-shadow: 0 0 5px 5px rgba(0,0,0,.2);
+}
+
+.icon_selector_details .details-wrapper>.form-wrapper img{
+    max-height: 50px;
+    flex-grow: 1;
+    margin: 10px auto;
+}
+
+.icon_selector_details .icon_selector_item input{
+    display: none !important;
+}
+
+

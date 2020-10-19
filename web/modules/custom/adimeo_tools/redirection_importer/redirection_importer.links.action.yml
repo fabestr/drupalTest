@@ -1,0 +1,5 @@
+redirection_importer.redirection_import:
+  route_name: 'redirection_importer.redirection_import'
+  title: 'CSV import redirections'
+  appears_on:
+    - redirect.list

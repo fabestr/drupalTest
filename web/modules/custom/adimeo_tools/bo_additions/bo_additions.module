@@ -1,0 +1,144 @@
+<?php
+
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\bo_additions\Service\ToolbarPrerender;
+
+/**
+ * Implements hook_toolbar().
+ */
+function bo_additions_toolbar() {
+  $items = [];
+  $items['contrib'] = [
+    '#cache' => [
+      'contexts' => ['user.permissions'],
+    ],
+  ];
+  if (!\Drupal::currentUser()->hasPermission('access administration pages')) {
+    return $items;
+  }
+
+  $items['contrib'] += [
+    '#type' => 'toolbar_item',
+    '#weight' => 1,
+    'tab' => [
+      '#type' => 'link',
+      '#title' => t('Contribuer'),
+      '#url' => Url::fromRoute('<front>'),
+      '#attributes' => [
+        'title' => t('Contribuer'),
+        'class' => ['toolbar-icon', 'toolbar-icon-system-admin-content'],
+      ],
+    ],
+    'tray' => array(
+      '#heading' => t('Content management'),
+      '#attached' => array(
+        'library' => [
+          'admin_toolbar/toolbar.tree',
+        ],
+      ),
+      'toolbar_bo_additions_toolbar_content' => array(
+        '#pre_render' => [[ToolbarPrerender::class, 'toolbar_content_pre_render']],
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('toolbar-menu-administration'),
+        ),
+      ),
+    ),
+
+  ];
+
+  /** @var \Drupal\Core\Menu\LocalTaskManagerInterface $manager */
+  $manager = \Drupal::service('plugin.manager.menu.local_task');
+  $localTasks = $manager->getLocalTasks(\Drupal::routeMatch()->getRouteName());
+  uasort($localTasks['tabs'], function ($a, $b) {
+    return $a['#weight'] > $b['#weight'];
+  });
+
+  // Build a list of links for the menu.
+  $links = [];
+
+  if (!empty($localTasks['tabs'])) {
+    foreach ($localTasks['tabs'] as $routeName => $localTaskItem) {
+      $links[$routeName] = [
+        '#type'   => 'link',
+        '#title'  => $localTaskItem['#link']['title'],
+        '#url'    => $localTaskItem['#link']['url'],
+        '#access' => $localTaskItem['#access'],
+      ];
+    }
+  }
+
+  if (!empty($links)) {
+    $items['tabs'] = [
+      '#cache'  => ['max-age' => 0],
+      '#type'   => 'toolbar_item',
+      'tab'     => [
+        '#type'  => 'link',
+        '#title' => t('Actions'),
+        '#url'   => Url::fromRoute('<front>'),
+      ],
+      'tray'    => [
+        'content' => [
+          '#theme'      => 'item_list',
+          '#type'       => 'ul',
+          '#items'      => $links,
+          '#attributes' => [
+            'class' => ['toolbar-menu '],
+          ],
+        ],
+      ],
+      '#weight' => 99,
+    ];
+  }
+
+  return $items;
+}
+
+function bo_additions_uninstall(){
+  \Drupal::configFactory()->getEditable('system.menu.contrib')->delete();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function bo_additions_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#submit'][] = '_bo_additions_user_login_submit';
+}
+
+/**
+ * Form submission handler for user_login_form().
+ *
+ * Redirects the user to the dashboard after logging in
+ * (if user has access to admin pages)
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function _bo_additions_user_login_submit(&$form, FormStateInterface $form_state) {
+
+  // Check if a destination was set, probably on an exception controller.
+  // @see \Drupal\user\Form\UserLoginForm::submitForm()
+  $request = \Drupal::service('request_stack')->getCurrentRequest();
+  if (!$request->request->has('destination')) {
+    if(Drupal::currentUser()->hasPermission('access administration pages')) {
+      $url = Url::fromUserInput('/admin/menu-overview/contrib');
+      $form_state->setRedirectUrl($url);
+    }
+  }
+  else {
+    $request->query->set('destination', $request->request->get('destination'));
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function bo_additions_preprocess_page(&$variables) {
+  if ($variables['is_admin']) {
+    $variables['#attached']['library'][] = 'bo_additions/toolbar_front';
+  }
+}

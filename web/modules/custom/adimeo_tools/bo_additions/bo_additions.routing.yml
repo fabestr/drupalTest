@@ -1,0 +1,33 @@
+#Route to redirect to the node edit form (to specify by query params)
+bo_additions.node_edit:
+  path: '/admin/node/edit'
+  defaults:
+    _controller: bo_additions.entity_edit_controller:nodeEditFormRedirect
+  requirements:
+    _permission: 'access content overview'
+
+#Route to redirect to the term edit form (to specify by query params)
+bo_additions.term_edit:
+  path: '/admin/term/edit'
+  defaults:
+    _controller: bo_additions.entity_edit_controller:termEditFormRedirect
+  requirements:
+    _permission: 'access content overview'
+
+#Route to redirect to the term edit form (to specify by query params)
+bo_additions.entity_edit:
+  path: '/admin/{entity_type}/edit'
+  defaults:
+    _controller: bo_additions.entity_edit_controller:entityEditFormRedirect
+  requirements:
+    _permission: 'access content overview'
+
+#Route to display any menu in a dashboard interface (like page "Configurations")
+# --> used for the contrib menu
+bo_additions.admin_dashboard:
+  path: '/admin/menu-overview/{menu_name}'
+  defaults:
+    _controller: bo_additions.admin_dashboard_controller:overview
+    _title: 'Tableau de bord'
+  requirements:
+    _permission: 'access content overview'

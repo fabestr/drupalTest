@@ -1,0 +1,9 @@
+name: Metatag Importer
+type: module
+description: Import Metatag from a csv file
+core_version_requirement: ^8 || ^9
+core: 8.x
+package: SEO
+dependencies:
+  - metatag
+  - adimeo_tools

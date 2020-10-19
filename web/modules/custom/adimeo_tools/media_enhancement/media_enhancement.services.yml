@@ -1,0 +1,17 @@
+services:
+  media_enhancement.twig_extension:
+    class: Drupal\media_enhancement\Service\TwigTools
+    public: false
+    tags:
+    - { name: twig.extension }
+
+  media_enhancement.manager:
+    class: Drupal\media_enhancement\Service\MediaEnhancementManager
+
+  media_enhancement.tools:
+    class: Drupal\media_enhancement\Service\MediaTools
+    arguments: ['@entity_type.manager']
+
+  media_enhancement.ajax_popin_controller:
+    class: Drupal\media_enhancement\Controllers\AjaxPopinMedia
+    arguments: ['@media_enhancement.tools']

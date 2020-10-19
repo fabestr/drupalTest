@@ -1,0 +1,51 @@
+# Comment ajouter des liens au menu Contrib :
+#
+# Exemple de lien de menu de premier niveau :
+#
+#nom_machine_de_mon_module.news:
+#  title: 'Actualités'
+#  parent: contrib
+#  menu_name: contrib
+#  route_name: view.content.page_1
+#  options:
+#    query:
+#      type: 'news'
+#  weight: 0
+
+###############
+#### TOOLS ####
+###############
+ui_additions.tools:
+  title: 'Outils'
+  url: internal:/admin/menu-overview/contrib
+  parent: contrib
+  menu_name: contrib
+  weight: -100
+
+ui_additions.tools.flush:
+  title: 'Flush all caches'
+  route_name: admin_toolbar_tools.flush
+  menu_name: contrib
+  parent: ui_additions.tools
+  weight: 0
+
+ui_additions.tools.maintenance:
+  title: 'Mettre le site en maintenance'
+  url: internal:/admin/config/development/maintenance
+  menu_name: contrib
+  parent: ui_additions.tools
+  weight: 1
+
+ui_additions.tools.run_cron:
+  title: 'Run cron'
+  route_name: admin_toolbar.run.cron
+  menu_name: contrib
+  parent: ui_additions.tools
+  weight: 2
+
+ui_additions.tools.logout:
+  title: 'Se déconnecter'
+  route_name: user.logout
+  menu_name: contrib
+  parent: ui_additions.tools
+  weight: 3

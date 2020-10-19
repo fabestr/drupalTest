@@ -1,0 +1,14 @@
+services:
+  bo_additions.toolbar:
+    class: Drupal\bo_additions\Service\Toolbar
+    arguments: ["@toolbar.menu_tree"]
+    tags:
+      - { name: backend_overridable }
+
+  bo_additions.entity_edit_controller:
+    class: Drupal\bo_additions\Controller\EntityEditRedirectController
+    arguments: ['@entity_type.manager']
+
+  bo_additions.admin_dashboard_controller:
+    class: \Drupal\bo_additions\Controller\ContribMenuOverviewController
+    arguments: ["@menu.link_tree","@system.manager"]

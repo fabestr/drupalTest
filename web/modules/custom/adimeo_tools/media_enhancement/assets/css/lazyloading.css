@@ -1,0 +1,21 @@
+.lazyload-image-wrapper {
+  max-width: 100%; }
+
+.lazyload-image-content {
+  position: relative;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.lazyload-image-content .lazyload {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+}
+.lazyload-image-content .lazyload.lazyloaded {
+  opacity: 1;
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+

@@ -1,0 +1,6 @@
+.toolbar-oriented .toolbar-bar .user-toolbar-tab {
+    float: right;
+}
+.toolbar-oriented .user-toolbar-tab > .toolbar-tray-horizontal li {
+    float: right;
+}

@@ -1,0 +1,9 @@
+icon_selector:
+  css:
+    theme:
+      libs/icon_selector.css: {}
+  js:
+    libs/icon_selector.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,9 @@
+name: Back-office Additions
+description: Améliorations diverses de l'UX et de la sécurité du back-office.
+type: module
+core_version_requirement: ^8 || ^9
+core: 8.x
+package: User interface
+
+dependencies:
+  - user

@@ -1,0 +1,4 @@
+/vendor/
+web/sites/default/files
+web/modules/contrib
+.idea
